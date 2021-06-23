@@ -11,16 +11,16 @@ docker run -d --restart=always --name crypto-compact -v /data/syncthing/crypto:/
 crypto_user=Riaz.Arbi
 # kraken trader
 docker run -d --restart=always --name crypto-kraken-trade-$crypto_user \
--v /data/projects/crypto:/home/jovyan/crypto \
--v /data/projects/secrets.json:/home/jovyan/secrets.json \
+-v /data/projects/crypto:/home/jovyan/crypto:ro \
+-v /data/projects/secrets.json:/home/jovyan/secrets.json:ro \
 $base_image /bin/bash -c "python3 -u crypto/kraken-buy.py $crypto_user"
 # kraken transfer
 docker run -d --restart=always --name crypto-kraken-tfer-$crypto_user \
--v /data/projects/crypto:/home/jovyan/crypto \
--v /data/projects/secrets.json:/home/jovyan/secrets.json \
+-v /data/projects/crypto:/home/jovyan/crypto:ro \
+-v /data/projects/secrets.json:/home/jovyan/secrets.json:ro \
 $base_image /bin/bash -c "python3 -u crypto/kraken-tfer.py $crypto_user"
 # luno trader
 docker run -d --restart=always --name crypto-luno-sell-$crypto_user \
--v /data/projects/crypto:/home/jovyan/crypto \
--v /data/projects/secrets.json:/home/jovyan/secrets.json \
+-v /data/projects/crypto:/home/jovyan/crypto:ro \
+-v /data/projects/secrets.json:/home/jovyan/secrets.json:ro \
 $base_image /bin/bash -c "python3 -u crypto/luno-sell.py $crypto_user"
