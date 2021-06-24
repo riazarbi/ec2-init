@@ -1,6 +1,6 @@
 #!/bin/sh
 # Get pulling the big guy
-base_image=riazarbi/datasci-r-heavy:focal
+base_image=riazarbi/datasci-r-heavy:20210519
 docker pull $base_image
 
 # Overall crypto workloads
