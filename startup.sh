@@ -15,6 +15,11 @@ docker run -d --restart=always --name crypto-kraken-trade-$crypto_user \
 -v /data/projects/crypto:/home/jovyan/crypto:ro \
 -v /data/projects/secrets.json:/home/jovyan/secrets.json:ro \
 $base_image /bin/bash -c "python3 -u crypto/kraken-buy.py $crypto_user"
+# kraken gbp trader
+docker run -d --restart=always --name crypto-kraken-gbp-trade-$crypto_user \
+-v /data/projects/crypto:/home/jovyan/crypto:ro \
+-v /data/projects/secrets.json:/home/jovyan/secrets.json:ro \
+$base_image /bin/bash -c "python3 -u crypto/kraken-gbp-buy.py $crypto_user"
 # kraken transfer
 docker run -d --restart=always --name crypto-kraken-tfer-$crypto_user \
 -v /data/projects/crypto:/home/jovyan/crypto:ro \
