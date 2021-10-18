@@ -4,7 +4,7 @@ base_image=riazarbi/datasci-r-heavy:20210519
 docker pull $base_image
 
 # Sinking market data for backtesting
-docker run -d --restart=always --name crypto-refresh -v /data/syncthing/crypto:/home/jovyan/crypto $base_image /bin/bash -c "bash crypto/refresh.sh" 
+#docker run -d --restart=always --name crypto-refresh -v /data/syncthing/crypto:/home/jovyan/crypto $base_image /bin/bash -c "bash crypto/refresh.sh" 
 # drop crypto compact because it's too resource intensive
 #docker run -d --restart=always --name crypto-compact -v /data/syncthing/crypto:/home/jovyan/crypto $base_image /bin/bash -c "bash crypto/compact.sh"
 
